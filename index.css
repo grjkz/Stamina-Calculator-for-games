@@ -38,7 +38,7 @@ button {
 }
 
 span[class$="answer"] {
-	color: rgba(0,255,0,1);
+	/*color: rgba(0,255,0,1);*/
 }
 
 #time-to-stam {

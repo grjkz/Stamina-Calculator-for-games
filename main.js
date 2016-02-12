@@ -1,3 +1,32 @@
+$(function() {
+
+////////////////
+// INITIALIZE //
+////////////////
+
+if (typeof(Storage) == 'undefined') {
+	document.getElementsByClassName('recover-time')[0].value = 5;
+}
+else {
+	document.getElementsByClassName('recover-time')[0].value = localStorage.grjkz_stamina_calc || 5;
+}
+
+////////////////////////////////
+// Save Stamina Recovery Time //
+////////////////////////////////
+
+$('.save-recover-time').click(function() {
+	var result = document.getElementsByClassName('save-result')[0];
+	if (typeof(Storage) == 'undefined') {
+		result.textContent = "Couldn't save to this device :(";
+	}
+	else {
+		localStorage.grjkz_stamina_calc = document.getElementsByClassName('recover-time')[0].value;
+		result.textContent = "Saved!";
+	}
+});
+
+
 //////////////////////////////
 // Stamina Gained in X time //
 //////////////////////////////
@@ -5,7 +34,7 @@
 $('.time-to-stam').submit(function(e) {
 	e.preventDefault();
 	var rec = Number(document.getElementsByClassName('recover-time')[0].value) || 0;
-	if (!rec) { document.getElementsByClassName('time-to-stam-answer').style.visibility = 'hidden'; return; }
+	if (!rec) { document.getElementsByClassName('time-to-stam-answer')[0].style.visibility = 'hidden'; return; }
 	var m = Number(document.getElementsByClassName('ts-minutes')[0].value) || 0;
 	var h = Number(document.getElementsByClassName('ts-hours')[0].value) || 0;
 	var d = Number(document.getElementsByClassName('ts-days')[0].value) || 0;
@@ -58,3 +87,6 @@ $('.stam-to-time').submit(function(e) {
 	document.getElementsByClassName('stam-to-time-answer')[0].style.visibility = 'visible';
 });
 
+
+
+});
