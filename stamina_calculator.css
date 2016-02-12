@@ -2,6 +2,22 @@ body {
 	margin: 0;
 }
 
+label {
+	font-size: 18px;
+	display: block;
+}
+
+input {
+	width: 60px;
+  text-align: center;
+  font-size: 15px;
+}
+
+button {
+	padding: 7px;
+  background-color: rgba(0,255,0,0.7);
+}
+
 .card {
 	text-align: center;
 	background-color: rgba(0,0,0,0.2);
@@ -12,17 +28,16 @@ body {
 	margin: 12px auto;
 }
 
+.adspace {
+	text-align: center;
+}
+
 .title {
 	text-align: center;
 }
 
-#recovery-input {
-	color: rgba(0,0,255,1);
-}
-
 .main {
 	display: flex;
-	/*width: 100%;*/
 }
 
 .main-left {
@@ -44,29 +59,13 @@ body {
 	/*background-color: blue;*/
 }
 
-label {
-	font-size: 18px;
-	display: block;
-}
-
-input {
-	width: 60px;
-  text-align: center;
-  font-size: 15px;
-}
-
-button {
-	padding: 7px;
-  background-color: rgba(0,255,0,0.7);
+#recovery-input {
+	color: rgba(0,0,255,1);
 }
 
 .calc-button {
 	display: block;
 	margin: 12px 0;
-}
-
-span[class$="answer"] {
-	/*color: rgba(0,255,0,1);*/
 }
 
 #time-to-stam {
@@ -83,30 +82,24 @@ form > div {
 	visibility: hidden;
 }
 
-.test {
-	background-color: black;
-	display: inline-block;
-	width: 300px;
-	height: 600px;
+.footer {
+	position: fixed;
+	bottom: 0;
 }
 
-.adspace {
-	text-align: center;
-}
-
-@media (min-width: 982px) {
+@media (min-width: 983px) {
 	.main-left {
 		display: block;
 	}
 }
 
-@media (min-width: 666px) {
+@media (min-width: 667px) {
 	.main-right {
 		display: block;
 	}
 }
 
-@media (min-width: 350px) {
+@media (min-width: 351px) {
 	.card {
 		width: 350px;
 	}
