@@ -25,16 +25,37 @@ $('.contact-button').click(function() {
  * ADs
  */
 function dynamicAds() {
-	if (window.innerWidth > 666) {
+	// responsive ad
+	// small to large screen
+	if (window.innerWidth > 666 && $('.responsive-main-center-ad > .responsive-ad').length > 0 ) {
 		$('.responsive-ad').appendTo($('.main-right'));
 	}
+	// large to small
+	else if (window.innerWidth <= 666 && $('.main-right > .responsive-ad').length > 0 ) {
+		$('.responsive-ad').appendTo($('.responsive-main-center-ad'));
+	}
 
-	if (window.innerWidth > 350) {
+	// 300x600 ad
+	// small to large
+	if (window.innerWidth > 982 && $('.large-main-center-ad > .300x600-ad').length > 0 ) {
 		$('.300x600-ad').appendTo($('.main-left'));
+	}
+	// large to small
+	else if (window.innerWidth <= 982 && $('.main-left > .300x600-ad').length > 0) {
+		$('.300x600-ad').appendTo($('.large-main-center-ad'));
 	}
 }
 
-dynamicAds();
+
+
+
+if (window.innerWidth > 666) {
+	$('.responsive-ad').appendTo($('.main-right'));
+}
+if (window.innerWidth > 982) {
+	$('.300x600-ad').appendTo($('.main-left'));
+}
+
 
 $(window).resize(function() {
 	dynamicAds();
