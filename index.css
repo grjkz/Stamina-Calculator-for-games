@@ -1,0 +1,28 @@
+label {
+	font-size: 18px;
+	display: block;
+}
+
+input {
+	width: 60px;
+  text-align: center;
+  font-size: 15px;
+}
+
+span[class$="answer"] {
+	color: rgba(0,255,0,1);
+}
+
+#time-to-stam {
+	width: 100%;
+}
+
+form > div {
+	display: inline-block;
+	margin: 0 12px;
+}
+
+.time-to-stam-answer,
+.stam-to-time-answer {
+	visibility: hidden;
+}
