@@ -4,11 +4,12 @@
 
 $('.time-to-stam').submit(function(e) {
 	e.preventDefault();
-	
+	var rec = Number(document.getElementsByClassName('recover-time')[0].value) || 0;
+	if (!rec) { document.getElementsByClassName('time-to-stam-answer').style.visibility = 'hidden'; return; }
 	var m = Number(document.getElementsByClassName('ts-minutes')[0].value) || 0;
 	var h = Number(document.getElementsByClassName('ts-hours')[0].value) || 0;
 	var d = Number(document.getElementsByClassName('ts-days')[0].value) || 0;
-	var s = ( (m) + (h * 60) + (d * 1440)) / 3;
+	var s = ( (m) + (h * 60) + (d * 1440)) / rec;
 	// var t = new Date(new Date().getTime() + ( ((m * 60) + (h * 3600) + (d * 43200)) * 1000 ) );
 
 	document.getElementsByClassName('ts-answer')[0].textContent = s;
@@ -21,11 +22,11 @@ $('.time-to-stam').submit(function(e) {
 
 $('.stam-to-time').submit(function(e) {
 	e.preventDefault();
-
+	var rec = Number(document.getElementsByClassName('recover-time')[0].value) || 0;
 	var s = Number(document.getElementsByClassName('st-stamina')[0].value);
-	if (!(s > 0)) { document.getElementsByClassName('stam-to-time-answer')[0].style.visibility = 'hidden'; return; } // return if input is not > 0
+	if (!(s > 0) || !rec) { document.getElementsByClassName('stam-to-time-answer')[0].style.visibility = 'hidden'; return; } // return if input is not > 0
 	// calculate time units
-	var m = s * 3;
+	var m = s * rec;
 	var d = Math.floor( m / 1440 );
 	var r = m % 1440; // remainder in minutes
 	var h = Math.floor( r / 60);

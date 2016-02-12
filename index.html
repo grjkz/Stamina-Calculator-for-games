@@ -3,15 +3,24 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="index.css">
-	<title>PAD Stamina Calculator</title>
+	<title>Stamina-Time Calculator</title>
 </head>
 <body>
+	
+	<div class="title">
+		<h1>Stamina-Time Calculator</h1>
+		<p>by Philip Choi</p>
+	</div>
 
-	<h1>Puzzle and Dragons Stamina Calculator</h1>
+	<div id="recovery-input" class="card">
+		<p>1 Stamina = <input type="number" class="recover-time"> minutes</p>
+	</div>
 
-	<div id="time-to-stam">
+	<!-- Time to Stamina Calc -->
+	<div id="time-to-stam" class="card">
 		<div class="heading">
-			<h4 class="heading">How much stamina will be recovered in <i>x</i> time?</h4>
+			<h3 class="heading">Time to Stamina</h3>
+			<p>How much stamina will be recovered in <i>x</i> time?</p>
 		</div>
 
 		<form class='time-to-stam'>
@@ -34,14 +43,16 @@
 	
 		<div class="time-to-stam-answer">
 			<p>
-				<span class="ts-answer">asdf</span><span> stamina</span>
+				<span class="ts-answer"></span><span> stamina</span>
 			</p>
 		</div>
 	</div> <!-- end #time-to-stam -->
 
-	<div id="stam-to-time">
+	<!-- Stamina to Time Calc -->
+	<div id="stam-to-time card" class="card">
 		<div class="heading">
-			<h4 class="heading">How long will it take to recover <i>x</i> stamina?</h4>
+			<h3 class="heading">Stamina to Time</h3>
+			<p>How long will it take to recover <i>x</i> stamina?</p>
 		</div>
 
 		<form class="stam-to-time">
@@ -63,7 +74,7 @@
 			 </p>
 			 <p>Recovered @ <span class="st-answer-clock"></span></p>
 		</div>
-	</div>
+	</div> <!-- end #time-to-stam -->
 	
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script src="main.js"></script>
