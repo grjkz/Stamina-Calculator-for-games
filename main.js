@@ -11,6 +11,11 @@ else {
 	document.getElementsByClassName('recover-time')[0].value = localStorage.grjkz_stamina_calc || 5;
 }
 
+$('.contact-button').click(function() {
+	$(this).parent().append('<a href="mailTo:PhilLikesMilkTea@gmail.com?subject=Ticket::Stamina Calculator">PhilLikesMilkTea@gmail.com</a>');
+	$(this).hide();
+});
+
 ////////////////////////////////
 // Save Stamina Recovery Time //
 ////////////////////////////////
