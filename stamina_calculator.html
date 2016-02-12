@@ -26,76 +26,137 @@
 		<p>by Philip</p>
 	</div>
 
-	<div id="recovery-input" class="card">
-		<p>1 Stamina = <input type="number" class="recover-time"> minutes</p>
-		<button class="save-recover-time">Remember</button>
-		<p class="save-result"></p>
-	</div>
+	<div class="main">
+		<div class="main-left adspace">
+			
+		</div> <!-- end .left-main -->
 
-	<!-- Time to Stamina Calc -->
-	<div id="time-to-stam" class="card">
-		<div class="heading">
-			<h3 class="heading">Time to Stamina</h3>
-			<p>How much stamina will be recovered in <i>x</i> time?</p>
+		<div class="main-center">
+			<!-- Stamina Recovery Time -->
+			<div id="recovery-input" class="card">
+				<p>1 Stamina = <input type="number" class="recover-time"> minutes</p>
+				<button class="save-recover-time">Remember</button>
+				<p class="save-result"></p>
+			</div>
+
+
+			<!-- Time to Stamina Calc -->
+			<div id="time-to-stam" class="card">
+				<div class="heading">
+					<h3 class="heading">Time to Stamina</h3>
+					<p>How much stamina will be recovered in <i>x</i> time?</p>
+				</div>
+
+				<form class='time-to-stam'>
+					<div>
+						<label for="ts-minutes">Minutes</label>
+						<input class="ts-minutes" type="number">
+					</div>
+					<div>
+						<label for="ts-hours">Hours</label>
+						<input class="ts-hours" type="number">
+					</div>
+					<div>
+						<label for="ts-days">Days</label>
+						<input class="ts-days" type="number">
+					</div>
+					<div class="calc-button">
+						<button>Calculate</button>
+					</div>
+				</form>
+			
+				<div class="time-to-stam-answer">
+					<p>
+						<span class="ts-answer"></span><span> stamina</span>
+					</p>
+				</div>
+			</div> <!-- end #time-to-stam -->
+
+			<div class="responsive-main-center-ad adspace">
+				<div class="responsive-ad">
+					<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+					<!-- Responsive -->
+					<ins class="adsbygoogle"
+					     style="display:block"
+					     data-ad-client="ca-pub-3970153604584746"
+					     data-ad-slot="9815358316"
+					     data-ad-format="auto"></ins>
+					<script>
+						(adsbygoogle = window.adsbygoogle || []).push({});
+					</script>
+				</div>
+			</div>
+
+
+			<!-- Stamina to Time Calc -->
+			<div id="stam-to-time card" class="card">
+				<div class="heading">
+					<h3 class="heading">Stamina to Time</h3>
+					<p>How long will it take to recover <i>x</i> stamina?</p>
+				</div>
+
+				<form class="stam-to-time">
+					<div>
+						<label for="st-stamina">Stamina</label>
+						<input class="st-stamina" type="number">
+					</div>
+					<div class="calc-button">
+						<button>Calculate</button>
+					</div>
+				</form>
+
+				<div class="stam-to-time-answer">
+					<p class="stam-to-time-answer-field">
+					 It'll take 
+					 <span class="st-answer-days"></span>
+					 <span class="st-answer-hours"></span>
+					 <span class="st-answer-minutes"></span>
+					 </p>
+					 <p>Recovered @ <span class="st-answer-clock"></span></p>
+				</div>
+			</div> <!-- end #time-to-stam -->
+			
+
+			<div class="large-main-center-ad adspace">
+				<div class="300x600-ad">
+					<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+					<!-- 300x600 Left Vertical Sidebar -->
+					<ins class="adsbygoogle"
+					     style="display:inline-block;width:300px;height:600px"
+					     data-ad-client="ca-pub-3970153604584746"
+					     data-ad-slot="8897028319"></ins>
+					<script>
+					(adsbygoogle = window.adsbygoogle || []).push({});
+					</script>
+				</div>
+			</div>
+
+			
+			<div id="contact" class="card">
+				<p>Suggestions or Comments?</p>
+				<button class="contact-button">Contact</button>
+			</div>
+		</div> <!-- end .center-main -->
+
+
+		<div class="main-right">
+
 		</div>
 
-		<form class='time-to-stam'>
-			<div>
-				<label for="ts-minutes">Minutes</label>
-				<input class="ts-minutes" type="number">
-			</div>
-			<div>
-				<label for="ts-hours">Hours</label>
-				<input class="ts-hours" type="number">
-			</div>
-			<div>
-				<label for="ts-days">Days</label>
-				<input class="ts-days" type="number">
-			</div>
-			<div class="calc-button">
-				<button>Calculate</button>
-			</div>
-		</form>
+	</div> <!-- end .main -->
 	
-		<div class="time-to-stam-answer">
-			<p>
-				<span class="ts-answer"></span><span> stamina</span>
-			</p>
+	<div class="footer adspace">
+		<div class="banner-ad">
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- Mobile Banner -->
+			<ins class="adsbygoogle"
+			     style="display:inline-block;width:320px;height:100px"
+			     data-ad-client="ca-pub-3970153604584746"
+			     data-ad-slot="6244613119"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
 		</div>
-	</div> <!-- end #time-to-stam -->
-
-	<!-- Stamina to Time Calc -->
-	<div id="stam-to-time card" class="card">
-		<div class="heading">
-			<h3 class="heading">Stamina to Time</h3>
-			<p>How long will it take to recover <i>x</i> stamina?</p>
-		</div>
-
-		<form class="stam-to-time">
-			<div>
-				<label for="st-stamina">Stamina</label>
-				<input class="st-stamina" type="number">
-			</div>
-			<div class="calc-button">
-				<button>Calculate</button>
-			</div>
-		</form>
-
-		<div class="stam-to-time-answer">
-			<p class="stam-to-time-answer-field">
-			 It'll take 
-			 <span class="st-answer-days"></span>
-			 <span class="st-answer-hours"></span>
-			 <span class="st-answer-minutes"></span>
-			 </p>
-			 <p>Recovered @ <span class="st-answer-clock"></span></p>
-		</div>
-	</div> <!-- end #time-to-stam -->
-	
-	
-	<div id="contact" class="card">
-		<p>Suggestions or Comments?</p>
-		<button class="contact-button">Contact</button>
 	</div>
 
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>

@@ -1,11 +1,15 @@
+body {
+	margin: 0;
+}
+
 .card {
 	text-align: center;
 	background-color: rgba(0,0,0,0.2);
 	box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-	width: 350px;
+	width: 100%;
 	padding: 12px;
-  margin: 12px auto;
 	box-sizing: border-box;
+	margin: 12px auto;
 }
 
 .title {
@@ -14,6 +18,30 @@
 
 #recovery-input {
 	color: rgba(0,0,255,1);
+}
+
+.main {
+	display: flex;
+	/*width: 100%;*/
+}
+
+.main-left {
+	width: 300px;
+	margin: 8px;
+	display: none;
+	/*background-color: red;*/
+}
+
+.main-center {
+	flex: 2;
+	/*background-color: green;*/
+}
+
+.main-right {
+	width: 300px;
+	padding: 8px;
+	display: none;
+	/*background-color: blue;*/
 }
 
 label {
@@ -42,6 +70,7 @@ span[class$="answer"] {
 }
 
 #time-to-stam {
+
 }
 
 form > div {
@@ -52,4 +81,33 @@ form > div {
 .time-to-stam-answer,
 .stam-to-time-answer {
 	visibility: hidden;
+}
+
+.test {
+	background-color: black;
+	display: inline-block;
+	width: 300px;
+	height: 600px;
+}
+
+.adspace {
+	text-align: center;
+}
+
+@media (min-width: 982px) {
+	.main-left {
+		display: block;
+	}
+}
+
+@media (min-width: 666px) {
+	.main-right {
+		display: block;
+	}
+}
+
+@media (min-width: 350px) {
+	.card {
+		width: 350px;
+	}
 }

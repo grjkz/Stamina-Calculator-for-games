@@ -16,6 +16,30 @@ $('.contact-button').click(function() {
 	$(this).hide();
 });
 
+
+////////////////
+// RESPONSIVE //
+////////////////
+
+/** 
+ * ADs
+ */
+function dynamicAds() {
+	if (window.innerWidth > 666) {
+		$('.responsive-ad').appendTo($('.main-right'));
+	}
+
+	if (window.innerWidth > 350) {
+		$('.300x600-ad').appendTo($('.main-left'));
+	}
+}
+
+dynamicAds();
+
+$(window).resize(function() {
+	dynamicAds();
+});
+
 ////////////////////////////////
 // Save Stamina Recovery Time //
 ////////////////////////////////
