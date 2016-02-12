@@ -46,9 +46,9 @@ function dynamicAds() {
 	}
 }
 
-
-
-
+/**
+ * On-Load ad placement
+ */
 if (window.innerWidth > 666) {
 	$('.responsive-ad').appendTo($('.main-right'));
 }
@@ -56,15 +56,21 @@ if (window.innerWidth > 982) {
 	$('.300x600-ad').appendTo($('.main-left'));
 }
 
-
+/**
+ * Window Resize responsiveness
+ */
 $(window).resize(function() {
 	dynamicAds();
 });
+
 
 ////////////////////////////////
 // Save Stamina Recovery Time //
 ////////////////////////////////
 
+/**
+ * Save User's preferred default stamina CD time
+ */
 $('.save-recover-time').click(function() {
 	var result = document.getElementsByClassName('save-result')[0];
 	if (typeof(Storage) == 'undefined') {
