@@ -1,3 +1,21 @@
+.card {
+	text-align: center;
+	background-color: rgba(0,0,0,0.2);
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+	width: 350px;
+	padding: 12px;
+  margin: 12px auto;
+	box-sizing: border-box;
+}
+
+.title {
+	text-align: center;
+}
+
+#recovery-input {
+	color: rgba(0,0,255,1);
+}
+
 label {
 	font-size: 18px;
 	display: block;
@@ -14,7 +32,6 @@ span[class$="answer"] {
 }
 
 #time-to-stam {
-	width: 100%;
 }
 
 form > div {
