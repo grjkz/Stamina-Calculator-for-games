@@ -89,9 +89,9 @@ form > div {
 }
 
 .footer {
-	position: fixed;
-	bottom: 0;
-	width: 100%;
+	/*position: fixed;*/
+	/*bottom: 0;*/
+	/*width: 100%;*/
 }
 
 @media (min-width: 983px) {
@@ -99,9 +99,9 @@ form > div {
 		display: block;
 	}
 
-	.footer {
+	/*.footer {
 		position: relative;
-	}
+	}*/
 }
 
 @media (min-width: 667px) {
@@ -116,9 +116,3 @@ form > div {
 	}
 }
 
-
-.test {
-	width: 300px;
-	height: 600px;
-	background-color: black;
-}
