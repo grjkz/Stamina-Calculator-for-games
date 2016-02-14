@@ -83,6 +83,25 @@ $('.save-recover-time').click(function() {
 });
 
 
+//////////////////////////////////
+// Time to reach target Stamina //
+//////////////////////////////////
+
+$('.time-to-max').submit(function(e) {
+	e.preventDefault();
+
+	var rec = Number(document.getElementsByClassName('recover-time')[0].value) || 0;
+	if (!rec) { document.getElementsByClassName('.time-to-max-answer').style.visibility = 'hidden'; return; }
+	var c = document.getElementsByClassName('.tm-current-stamina');
+	var x = document.getElementsByClassName('.tm-target-stamina');
+	var m = (x - c) * rec; // total minutes it takes to recover x stamina
+	var t = getFutureTimestamp(m);
+
+
+
+});
+
+
 //////////////////////////////
 // Stamina Gained in X time //
 //////////////////////////////
@@ -146,3 +165,30 @@ $('.stam-to-time').submit(function(e) {
 
 
 });
+
+////////////////
+// FUNCTINONS //
+////////////////
+
+
+/**
+ * Get the Timestamp of the future time
+ * @param  {int} m Total minutes needed to reach target time
+ * @return {string} t Returns future target datetime or time (eg: 16:12 EST || Sun Jan 1 22:30 EST)
+ */
+function getFutureTimestamp(m) {
+	var t = new Date(new Date().getTime() + (1000 * m * 60) );
+
+	if (t.getTime() - new Date().getTime() >= 86400000) { // if diff is more than a day
+		t = t.toString().split(' ');
+		t.splice(-2,1);
+		t.splice(3,1);
+		t[3] = t[3].substring(0,5);
+	}
+	else {
+		t = t.toTimeString().split(' ');
+		t[0] = t[0].substring(0,5);
+		t.splice(1,1);
+	}
+	return t.join(' ');
+}
