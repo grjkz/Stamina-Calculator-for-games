@@ -41,8 +41,10 @@
 		<div class="main-center">
 			<!-- Stamina Recovery Time -->
 			<div id="recovery-input" class="card">
-				<p>1 Stamina = <input type="number" class="recover-time" value="5"> minutes</p>
-				<button class="save-recover-time">Remember</button>
+				<form class="recovery-input">
+					<p>1 Stamina = <input type="number" class="recover-time" value="5"> minutes</p>
+					<button class="save-recover-time">Remember</button>
+				</form>
 				<p class="save-result"></p>
 			</div>
 
@@ -67,7 +69,7 @@
 					</div>
 				</form>
 
-				<div class="time-to-max-answer">
+				<div class="time-to-max-answer invisible">
 					<p>
 						You'll have <span class="tm-answer-target-stamina"></span> stamina @ <br>
 						<span class="tm-answer-clock"></span>
@@ -113,7 +115,7 @@
 					</div>
 				</form>
 			
-				<div class="time-to-stam-answer">
+				<div class="time-to-stam-answer invisible">
 					<p>
 						<span class="ts-answer"></span><span> stamina</span>
 					</p>
@@ -146,8 +148,8 @@
 					</div>
 				</form>
 
-				<div class="stam-to-time-answer">
-					<p class="stam-to-time-answer-field">
+				<div class="stam-to-time-answer invisible">
+					<p>
 					 It'll take 
 					 <span class="st-answer-time-takes"></span>
 					 </p>

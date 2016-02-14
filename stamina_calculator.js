@@ -80,7 +80,9 @@ $('.contact-button').click(function() {
 /**
  * Save User's preferred default stamina CD time
  */
-$('.save-recover-time').click(function() {
+$('.recovery-input').submit(function(e) {
+	e.preventDefault();
+	
 	var result = document.getElementsByClassName('save-result')[0];
 	if (typeof(Storage) == 'undefined') {
 		result.textContent = "Couldn't save to this device :(";
@@ -103,8 +105,11 @@ $('.time-to-max').submit(function(e) {
 	if (!rec) { document.getElementsByClassName('time-to-max-answer').style.visibility = 'hidden'; return; }
 	var c = Number(document.getElementsByClassName('tm-current-stamina')[0].value);
 	var x = Number(document.getElementsByClassName('tm-target-stamina')[0].value);
-	
+	var $answerField = document.getElementsByClassName('time-to-max-answer')[0];
 	if (c > x || x < 1) {
+		if ($answerField.style.visibility == "visible") {
+			$answerField.style.visibility = "hidden";
+		}
 		globalMessage("Invalid Input");
 		return;
 	}
@@ -113,7 +118,7 @@ $('.time-to-max').submit(function(e) {
 	document.getElementsByClassName('tm-answer-target-stamina')[0].textContent = x;
 	document.getElementsByClassName('tm-answer-time-takes')[0].textContent = getTimeIntervals(m);
 	document.getElementsByClassName('tm-answer-clock')[0].textContent = getFutureTimestamp(m);
-
+	$answerField.style.visibility = "visible";
 });
 
 
@@ -128,8 +133,11 @@ $('.time-to-stam').submit(function(e) {
 	var m = Number(document.getElementsByClassName('ts-minutes')[0].value) || 0;
 	var h = Number(document.getElementsByClassName('ts-hours')[0].value) || 0;
 	var d = Number(document.getElementsByClassName('ts-days')[0].value) || 0;
-
+	var $answerField = document.getElementsByClassName('time-to-stam-answer')[0];
 	if (m < 1 && h < 1 && d < 1) {
+		if ($answerField.style.visibility == "visible") {
+			$answerField.style.visibility = "hidden";
+		}
 		globalMessage("Invalid Time");
 		return;
 	}
@@ -137,7 +145,7 @@ $('.time-to-stam').submit(function(e) {
 	// var t = new Date(new Date().getTime() + ( ((m * 60) + (h * 3600) + (d * 43200)) * 1000 ) );
 
 	document.getElementsByClassName('ts-answer')[0].textContent = s;
-	document.getElementsByClassName('time-to-stam-answer')[0].style.visibility = "visible";
+	$answerField.style.visibility = "visible";
 });
 
 
@@ -242,5 +250,5 @@ function globalMessage(m, c) {
 	$global.style.display = 'inline-block';
 	setTimeout(function() {
 		$global.style.display = "none";
-	}, 3000);
+	}, 2500);
 }
