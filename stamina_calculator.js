@@ -4,17 +4,26 @@ $(function() {
 // INITIALIZE //
 ////////////////
 
+/**
+ * Load user's saved Time per Stamina
+ */
 if (typeof(Storage) == 'undefined') {
-	document.getElementsByClassName('recover-time')[0].value = 5;
+	// document.getElementsByClassName('recover-time')[0].value = 5;
 }
 else {
 	document.getElementsByClassName('recover-time')[0].value = localStorage.grjkz_stamina_calc || 5;
 }
 
+
+/**
+ * Show my contact email when button is clicked
+ */
 $('.contact-button').click(function() {
 	$(this).parent().append('<a href="mailTo:PhilLikesMilkTea@gmail.com?subject=Ticket::Stamina Calculator">PhilLikesMilkTea@gmail.com</a>');
 	$(this).hide();
 });
+
+// dynamicAds();
 
 
 ////////////////
@@ -24,44 +33,44 @@ $('.contact-button').click(function() {
 /** 
  * ADs
  */
-function dynamicAds() {
-	// responsive ad
-	// small to large screen
-	if (window.innerWidth > 666 && $('.responsive-main-center-ad > .responsive-ad').length > 0 ) {
-		$('.responsive-ad').appendTo($('.main-right'));
-	}
-	// large to small
-	else if (window.innerWidth <= 666 && $('.main-right > .responsive-ad').length > 0 ) {
-		$('.responsive-ad').appendTo($('.responsive-main-center-ad'));
-	}
+// function dynamicAds() {
+// 	// responsive ad
+// 	// small to large screen
+// 	if (window.innerWidth > 666 && $('.responsive-main-center-ad > .responsive-ad').length > 0 ) {
+// 		$('.responsive-ad').appendTo($('.main-right'));
+// 	}
+// 	// large to small
+// 	else if (window.innerWidth <= 666 && $('.main-right > .responsive-ad').length > 0 ) {
+// 		$('.responsive-ad').appendTo($('.responsive-main-center-ad'));
+// 	}
 
-	// 300x600 ad
-	// small to large
-	if (window.innerWidth > 982 && $('.large-main-center-ad > .300x600-ad').length > 0 ) {
-		$('.300x600-ad').appendTo($('.main-left'));
-	}
-	// large to small
-	else if (window.innerWidth <= 982 && $('.main-left > .300x600-ad').length > 0) {
-		$('.300x600-ad').appendTo($('.large-main-center-ad'));
-	}
-}
+// 	// 300x600 ad
+// 	// small to large
+// 	if (window.innerWidth > 982 && $('.large-main-center-ad > .300x600-ad').length > 0 ) {
+// 		$('.300x600-ad').appendTo($('.main-left'));
+// 	}
+// 	// large to small
+// 	else if (window.innerWidth <= 982 && $('.main-left > .300x600-ad').length > 0) {
+// 		$('.300x600-ad').appendTo($('.large-main-center-ad'));
+// 	}
+// }
 
 /**
  * On-Load ad placement
  */
-if (window.innerWidth > 666) {
-	$('.responsive-ad').appendTo($('.main-right'));
-}
-if (window.innerWidth > 982) {
-	$('.300x600-ad').appendTo($('.main-left'));
-}
+// if (window.innerWidth > 666) {
+// 	$('.responsive-ad').appendTo($('.main-right'));
+// }
+// if (window.innerWidth > 982) {
+// 	$('.300x600-ad').appendTo($('.main-left'));
+// }
 
 /**
  * Window Resize responsiveness
  */
-$(window).resize(function() {
-	dynamicAds();
-});
+// $(window).resize(function() {
+	// dynamicAds();
+// });
 
 
 ////////////////////////////////
@@ -91,13 +100,19 @@ $('.time-to-max').submit(function(e) {
 	e.preventDefault();
 
 	var rec = Number(document.getElementsByClassName('recover-time')[0].value) || 0;
-	if (!rec) { document.getElementsByClassName('.time-to-max-answer').style.visibility = 'hidden'; return; }
-	var c = document.getElementsByClassName('.tm-current-stamina');
-	var x = document.getElementsByClassName('.tm-target-stamina');
+	if (!rec) { document.getElementsByClassName('time-to-max-answer').style.visibility = 'hidden'; return; }
+	var c = Number(document.getElementsByClassName('tm-current-stamina')[0].value);
+	var x = Number(document.getElementsByClassName('tm-target-stamina')[0].value);
+	
+	if (c > x || x < 1) {
+		// error: Invalid Input
+		return;
+	}
+
 	var m = (x - c) * rec; // total minutes it takes to recover x stamina
-	var t = getFutureTimestamp(m);
-
-
+	document.getElementsByClassName('tm-answer-target-stamina')[0].textContent = x;
+	document.getElementsByClassName('tm-answer-time-takes')[0].textContent = getTimeIntervals(m);
+	document.getElementsByClassName('tm-answer-clock')[0].textContent = getFutureTimestamp(m);
 
 });
 
@@ -113,12 +128,18 @@ $('.time-to-stam').submit(function(e) {
 	var m = Number(document.getElementsByClassName('ts-minutes')[0].value) || 0;
 	var h = Number(document.getElementsByClassName('ts-hours')[0].value) || 0;
 	var d = Number(document.getElementsByClassName('ts-days')[0].value) || 0;
-	var s = ( (m) + (h * 60) + (d * 1440)) / rec;
+
+	if (m < 1 && h < 1 && d < 1) {
+		// error: Invalid Time
+		return;
+	}
+	var s = Math.floor( ( m + (h * 60) + (d * 1440) ) / rec );
 	// var t = new Date(new Date().getTime() + ( ((m * 60) + (h * 3600) + (d * 43200)) * 1000 ) );
 
 	document.getElementsByClassName('ts-answer')[0].textContent = s;
 	document.getElementsByClassName('time-to-stam-answer')[0].style.visibility = "visible";
 });
+
 
 ///////////////////////////////////
 // Time Needed to gain X stamina //
@@ -126,36 +147,23 @@ $('.time-to-stam').submit(function(e) {
 
 $('.stam-to-time').submit(function(e) {
 	e.preventDefault();
+	
+	var $answerField = document.getElementsByClassName('stam-to-time-answer')[0];
 	var rec = Number(document.getElementsByClassName('recover-time')[0].value) || 0;
 	var s = Number(document.getElementsByClassName('st-stamina')[0].value);
-	if (!(s > 0) || !rec) { document.getElementsByClassName('stam-to-time-answer')[0].style.visibility = 'hidden'; return; } // return if input is not > 0
-	// calculate time units
-	var m = s * rec;
-	var d = Math.floor( m / 1440 );
-	var r = m % 1440; // remainder in minutes
-	var h = Math.floor( r / 60);
-	// calculate end time
-	var t = new Date(new Date().getTime() + (1000 * m * 60) ); // milisecond * total minutes * seconds in a minute
-	var min = r % 60;
-	var a = document.getElementsByClassName('stam-to-time-answer-field')[0].children;
 	
-	if (d > 0 ) {
-		a[0].textContent = (d == 1) ? d + " day" : d + " days";
-	} else { a[0].textContent = ""; }
+	if ( !(s > 0) || !rec) { // exit if input is not > 0
+		if ($answerField.style.visibility == "visible") {
+			$answerField.style.visibility = 'hidden'; 
+		}
+		return;
+	}
 	
-	if (h > 0) {
-		a[1].textContent = (h == 1) ? h + " hour" : h + " hours";
-	} else { a[1].textContent = ""; }
-	
-	if (min > 0) {
-		a[2].textContent = (min == 1) ? min + " minute" : min + " minutes";
-	} else { a[2].textContent = ""; }
-	
-	document.getElementsByClassName('stam-to-time-answer')[0].style.visibility = 'visible';
+	var m = rec * s;
+	document.getElementsByClassName('st-answer-time-takes')[0].textContent = getTimeIntervals(m);
 	document.getElementsByClassName('st-answer-clock')[0].textContent = getFutureTimestamp(m); // clock only
+	$answerField.style.visibility = 'visible';
 });
-
-
 
 });
 
@@ -184,4 +192,38 @@ function getFutureTimestamp(m) {
 		t.splice(1,1);
 	}
 	return t.join(' ');
+}
+
+
+/**
+ * Converts minutes into human readable time period of days, hours and minutes
+ * @param  {int} m Minutes
+ * @return {string}   "X days Y hours Z minutes"
+ */
+function getTimeIntervals(m) {
+	var x = {};
+	var d = Math.floor( m / 1440 );
+	var r = m % 1440; // remainder in minutes
+	var h = Math.floor( r / 60);
+	// calculate end time
+	var min = r % 60;
+
+	if (d > 0) {
+		x.d = (d == 1) ? d + " day" : d + " days";
+	} else { x.d = ""; }
+	if (h > 0) {
+		x.h = (h == 1) ? h + " hour" : h + " hours";
+	} else { x.h = ""; }
+	if (min > 0) {
+		x.m = (min == 1) ? min + " minute" : min + " minutes";
+	} else { x.m = ""; }
+
+	// add spaces where necessary
+	if (x.d && x.h) {
+		x.d += " ";
+	}
+	if (x.h && x.m) {
+		x.h += " ";
+	}
+	return (x.d + x.h + x.m);
 }
