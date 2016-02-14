@@ -136,30 +136,23 @@ $('.stam-to-time').submit(function(e) {
 	var h = Math.floor( r / 60);
 	// calculate end time
 	var t = new Date(new Date().getTime() + (1000 * m * 60) ); // milisecond * total minutes * seconds in a minute
-	m = r % 60;
-	console.log(t.toTimeString());
+	var min = r % 60;
 	var a = document.getElementsByClassName('stam-to-time-answer-field')[0].children;
+	
 	if (d > 0 ) {
 		a[0].textContent = (d == 1) ? d + " day" : d + " days";
-		t = t.toString().split(' ');
-		t.splice(-2,1);
-		t.splice(3,1);
-		t[3] = t[3].substring(0,5);
-		document.getElementsByClassName('st-answer-clock')[0].textContent = t.join(' '); // full datetime without GMT
-	} else {
-		a[0].textContent = "";
-		t = t.toTimeString().split(' ');
-		t[0] = t[0].substring(0,5);
-		t.splice(1,1);
-		document.getElementsByClassName('st-answer-clock')[0].textContent = t.join(' '); // clock only
-	}
+	} else { a[0].textContent = ""; }
+	
 	if (h > 0) {
 		a[1].textContent = (h == 1) ? h + " hour" : h + " hours";
 	} else { a[1].textContent = ""; }
-	if (m > 0) {
-		a[2].textContent = (m == 1) ? m + " minute" : m + " minutes";
+	
+	if (min > 0) {
+		a[2].textContent = (min == 1) ? min + " minute" : min + " minutes";
 	} else { a[2].textContent = ""; }
+	
 	document.getElementsByClassName('stam-to-time-answer')[0].style.visibility = 'visible';
+	document.getElementsByClassName('st-answer-clock')[0].textContent = getFutureTimestamp(m); // clock only
 });
 
 
