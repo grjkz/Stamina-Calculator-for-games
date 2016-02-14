@@ -42,6 +42,19 @@ button {
 	text-align: center;
 }
 
+.global-message-wrapper {
+	position: fixed;
+	width: 100%;
+	text-align: center;
+	top: 20px;
+}
+
+#global-message {
+	display: none;
+	background-color: blue;
+	color: red;
+}
+
 .main {
 	display: flex;
 }

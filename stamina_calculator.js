@@ -105,7 +105,7 @@ $('.time-to-max').submit(function(e) {
 	var x = Number(document.getElementsByClassName('tm-target-stamina')[0].value);
 	
 	if (c > x || x < 1) {
-		// error: Invalid Input
+		globalMessage("Invalid Input");
 		return;
 	}
 
@@ -130,7 +130,7 @@ $('.time-to-stam').submit(function(e) {
 	var d = Number(document.getElementsByClassName('ts-days')[0].value) || 0;
 
 	if (m < 1 && h < 1 && d < 1) {
-		// error: Invalid Time
+		globalMessage("Invalid Time");
 		return;
 	}
 	var s = Math.floor( ( m + (h * 60) + (d * 1440) ) / rec );
@@ -152,10 +152,11 @@ $('.stam-to-time').submit(function(e) {
 	var rec = Number(document.getElementsByClassName('recover-time')[0].value) || 0;
 	var s = Number(document.getElementsByClassName('st-stamina')[0].value);
 	
-	if ( !(s > 0) || !rec) { // exit if input is not > 0
+	if ( s < 1 || !rec) { // exit if input is not > 0
 		if ($answerField.style.visibility == "visible") {
 			$answerField.style.visibility = 'hidden'; 
 		}
+		globalMessage("Invalid Input");
 		return;
 	}
 	
@@ -226,4 +227,20 @@ function getTimeIntervals(m) {
 		x.h += " ";
 	}
 	return (x.d + x.h + x.m);
+}
+
+
+/**
+ * Displays a global message to user
+ * @param  {string} m String to output
+ * @param  {string} c String color
+ */
+function globalMessage(m, c) {
+	var $global = document.getElementById('global-message');
+	$global.textContent = m;
+	$global.style.color = c ? c : "red";
+	$global.style.display = 'inline-block';
+	setTimeout(function() {
+		$global.style.display = "none";
+	}, 3000);
 }
