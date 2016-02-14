@@ -9,3 +9,8 @@
 
 ## Contact
 Contact me if you have any suggestions
+
+## Todo 
+* What time will I reach x stamina?
+ * Enter current stamina
+ * Enter amound of stamina you want to reach
