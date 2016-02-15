@@ -115,7 +115,7 @@ $('.time-to-max').submit(function(e) {
 	}
 
 	var m = (x - c) * rec; // total minutes it takes to recover x stamina
-	document.getElementsByClassName('tm-answer-target-stamina')[0].textContent = x-c;
+	document.getElementsByClassName('tm-answer-delta-stamina')[0].textContent = x-c;
 	document.getElementsByClassName('tm-answer-time-takes')[0].textContent = getTimeIntervals(m);
 	document.getElementsByClassName('tm-answer-clock')[0].textContent = getFutureTimestamp(m);
 	$answerField.style.visibility = "visible";
