@@ -82,7 +82,7 @@ $('.contact-button').click(function() {
  */
 $('.recovery-input').submit(function(e) {
 	e.preventDefault();
-	
+
 	var result = document.getElementsByClassName('save-result')[0];
 	if (typeof(Storage) == 'undefined') {
 		result.textContent = "Couldn't save to this device :(";
@@ -115,7 +115,7 @@ $('.time-to-max').submit(function(e) {
 	}
 
 	var m = (x - c) * rec; // total minutes it takes to recover x stamina
-	document.getElementsByClassName('tm-answer-target-stamina')[0].textContent = x;
+	document.getElementsByClassName('tm-answer-target-stamina')[0].textContent = x-c;
 	document.getElementsByClassName('tm-answer-time-takes')[0].textContent = getTimeIntervals(m);
 	document.getElementsByClassName('tm-answer-clock')[0].textContent = getFutureTimestamp(m);
 	$answerField.style.visibility = "visible";
