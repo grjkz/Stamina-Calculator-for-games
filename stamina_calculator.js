@@ -122,6 +122,43 @@ $('.time-to-max').submit(function(e) {
 });
 
 
+/////////////////////
+// Endtime Stamina //
+/////////////////////
+
+$('.endtime-stamina').submit(function(e) {
+	e.preventDefault();
+
+	var $answerField = document.getElementsByClassName('endtime-stamina-answer')[0];
+	var c = Number(document.getElementsByClassName('es-current-stamina')[0].value || 0);
+	var h = Number(document.getElementsByClassName('es-hour')[0].value);
+	var min = Number(document.getElementsByClassName('es-minute')[0].value);
+	var mer = Number(document.getElementsByClassName('es-meridiem')[0].value);
+	var t = new Date();
+	if (c < 0 || h > 12 || !h || m > 59 || m < 0) {
+		if ($answerField.style.visibility == 'visible') {
+			$answerField.style.visibility = 'hidden';
+		}
+		globalMessage('Invalid Input');
+		return;
+	}
+
+	h = (h + mer == 24) ? 0 : h + mer;
+	// if the input time is past midnight
+	if (h - t.getHours() <= 0 && min < t.getMinutes()) {
+		var m = (24 - h) * 60 - t.getMinutes();
+		m += h * 60 + min;
+	}
+	else {
+		var m = (h * 60 + min) - (t.getHours() * 60 + t.getMinutes());
+	}
+
+	document.getElementsByClassName('es-answer')[0].textContent = Math.floor(m / 3) + c;
+	$answerField.style.visibility = 'visible';
+});
+
+
+
 //////////////////////////////
 // Stamina Gained in X time //
 //////////////////////////////
