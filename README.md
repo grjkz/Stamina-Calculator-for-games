@@ -1,10 +1,11 @@
 # Stamina Calculator for Games!
 
 ## Features
-* Depending on your game, you can manually add the time (in minutes) it takes to regenerate one stamina
-* You can enter the amount of stamina...
- * and it will tell you how much time it will take in days, hours, and minutess
- * also tell you the time you should expect that much to be recovered (according to your device's local time)
+* Manually add the recovery time (in minutes) that your game takes to rechage one stamina
+ * Click the "Remember" button to save the recovery time to the device
+* Calculate the time you will have specified or max stamina
+* Calculate how much stamina you will have by the specified time
+* Calculate how much time it will take to recover a specified amount of stamina
 * Enter an amount of time and it will tell you how much stamina you will recover
 * Calculate how long it till take you to reach max stamina or desired value
 
