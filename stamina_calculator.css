@@ -132,7 +132,7 @@ form > div {
  */
 #fb-comments {
 	width: 300px;
-	margin: 10px;
+	margin: 12px;
 }
 
 @media (min-width: 983px) {
@@ -147,7 +147,7 @@ form > div {
 
 @media (min-width: 667px) {
 	.main-right {
-		display: block;
+		/*display: block;*/
 	}
 }
 
@@ -160,6 +160,7 @@ form > div {
 @media (min-width: 375px) {
 	#fb-comments {
 		width: 80%;
+		margin: 12px auto;
 	}
 }
 
