@@ -127,6 +127,14 @@ form > div {
 	/*width: 100%;*/
 }
 
+/**
+ * Facebook
+ */
+#fb-comments {
+	width: 300px;
+	margin: 10px;
+}
+
 @media (min-width: 983px) {
 	.main-left {
 		display: block;
@@ -149,3 +157,14 @@ form > div {
 	}
 }
 
+@media (min-width: 375px) {
+	#fb-comments {
+		width: 80%;
+	}
+}
+
+@media (min-width: 550px) {
+	#fb-comments {
+		width: 530px;
+	}
+}
