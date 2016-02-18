@@ -131,8 +131,10 @@ form > div {
  * Facebook
  */
 #fb-comments {
-	width: 300px;
-	margin: 12px;
+	width: 320px;
+	padding: 12px;
+	box-sizing: border-box;
+	margin: 0 auto;
 }
 
 @media (min-width: 983px) {
@@ -160,12 +162,11 @@ form > div {
 @media (min-width: 375px) {
 	#fb-comments {
 		width: 80%;
-		margin: 12px auto;
 	}
 }
 
 @media (min-width: 550px) {
 	#fb-comments {
-		width: 530px;
+		width: 550px;
 	}
 }
