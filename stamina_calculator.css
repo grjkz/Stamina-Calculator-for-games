@@ -132,9 +132,9 @@ form > div {
  */
 #fb-comments {
 	width: 320px;
-	padding: 12px;
+	padding: 0px 12px;
 	box-sizing: border-box;
-	margin: 0 auto;
+	margin: 12px auto;
 }
 
 @media (min-width: 983px) {
