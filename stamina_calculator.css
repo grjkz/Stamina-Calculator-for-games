@@ -50,7 +50,9 @@ button {
 	position: fixed;
   right: 0;
   top: 0;
-  margin: 12px;
+  width: 100%;
+  padding: 12px;
+  text-align: right;
 }
 
 #share > div{
@@ -135,6 +137,11 @@ form > div {
 	padding: 0px 12px;
 	box-sizing: border-box;
 	margin: 12px auto;
+}
+
+/* hide the popup when clicking like */
+.fb-like {
+	overflow: hidden;
 }
 
 @media (min-width: 983px) {
