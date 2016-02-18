@@ -18,10 +18,10 @@ else {
 /**
  * Show my contact email when button is clicked
  */
-$('.contact-button').click(function() {
-	$(this).parent().append('<a href="mailTo:PhilLikesMilkTea@gmail.com?subject=Ticket::Stamina Calculator">PhilLikesMilkTea@gmail.com</a>');
-	$(this).hide();
-});
+// $('.contact-button').click(function() {
+// 	$(this).parent().append('<a href="mailTo:PhilLikesMilkTea@gmail.com?subject=Ticket::Stamina Calculator">PhilLikesMilkTea@gmail.com</a>');
+// 	$(this).hide();
+// });
 
 // dynamicAds();
 
