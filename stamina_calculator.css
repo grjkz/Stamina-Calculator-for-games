@@ -139,7 +139,7 @@ form > div {
 
 @media (min-width: 983px) {
 	.main-left {
-		display: block;
+		/*display: block;*/
 	}
 
 	/*.footer {
