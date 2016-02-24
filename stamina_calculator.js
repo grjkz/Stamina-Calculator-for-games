@@ -33,6 +33,13 @@ else {
 /** 
  * ADs
  */
+
+if (!isMobile()) {
+   // disable mobile-only facebook ad
+   document.getElementsByClassName('responsive-ad').remove();
+}
+
+
 // function dynamicAds() {
 // 	// responsive ad
 // 	// small to large screen
@@ -288,4 +295,12 @@ function globalMessage(m, c) {
 	setTimeout(function() {
 		$global.style.display = "none";
 	}, 2500);
+}
+
+/**
+ * For mobile device detection
+ * @return {Boolean} returns true if mobile device
+ */
+function isMobile() {
+   return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
