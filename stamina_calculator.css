@@ -53,6 +53,7 @@ button {
   width: 100%;
   padding: 12px;
   text-align: right;
+  z-index: 50;
 }
 
 #share > div{
@@ -127,6 +128,17 @@ form > div {
 	/*position: fixed;*/
 	/*bottom: 0;*/
 	/*width: 100%;*/
+}
+
+/**
+ * AD
+ */
+.responsive-main-center-ad {
+	text-align: center;
+}
+
+.responsive-ad {
+	display: inline-block;
 }
 
 /**
