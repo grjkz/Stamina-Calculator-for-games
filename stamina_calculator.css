@@ -124,10 +124,14 @@ form > div {
 	margin: 12px 0;
 }
 
-.footer {
-	/*position: fixed;*/
-	/*bottom: 0;*/
-	/*width: 100%;*/
+#footer {
+	margin: 24px;
+	text-align: center;
+}
+
+.pp {
+	text-decoration: none;
+	color: rgba(0,0,0,1);
 }
 
 /**
