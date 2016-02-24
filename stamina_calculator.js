@@ -36,7 +36,7 @@ else {
 
 if (!isMobile()) {
    // disable mobile-only facebook ad
-   document.getElementsByClassName('responsive-ad').remove();
+   document.getElementsByClassName('responsive-ad')[0].remove()
 }
 
 
