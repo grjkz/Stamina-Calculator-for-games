@@ -34,10 +34,10 @@ else {
  * ADs
  */
 
-if (!isMobile()) {
-   // disable mobile-only facebook ad
-   document.getElementsByClassName('responsive-ad')[0].remove()
-}
+// if (!isMobile()) {
+//    // disable mobile-only facebook ad
+//    document.getElementsByClassName('responsive-ad')[0].remove();
+// }
 
 
 // function dynamicAds() {
