@@ -153,14 +153,19 @@ $('.endtime-stamina').submit(function(e) {
 	// if 12 is entered, change it to zero
 	// else add mer (0 for AM, 12 for PM)
 	h = (h == 12) ? mer : h + mer;
-	
+
 	// if the target time starts on a new day
-	// target hour - current hour can be equal to zero
+	// check
+	// is target hour greater than current hour?
+	// || is target hour == to current hour? check to make sure target minute is greater than current minute
 	// target minute is less than current minute and target hour is before or equal to now
 	//   meaning the target time can be 6:29 and current is 6:30 === true
-	if (h - t.getHours() <= 0 && min < t.getMinutes()) {
-		var m = ( (h + 24) - t.getHours() ) * 60 - t.getMinutes(); // add 24 to target hours since it's the next day
-		m += h * 60 + min;
+	if ( (h - t.getHours() < 0) || (h - t.getHours() == 0 && min < t.getMinutes()) ) {
+		// add 24 to target hours since it's the next day
+		// subtract current hour and multiply by 60 to get total hour-minutes
+		// subtract current minute (portion of minutes that has already passed)
+		// add target minutes
+		var m = ( (h + 24) - t.getHours() ) * 60 - t.getMinutes() + min;
 	}
 	// if the target time is on the same day as current time
 	else {
