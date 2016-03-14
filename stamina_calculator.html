@@ -33,32 +33,32 @@
      \__\/       \__\/                                               \__\/                \__\/         \__\/         \__\/                
      -->
 	<script>
-	 	window.fbAsyncInit = function() {
-	 		FB.init({
-	      appId      : '1692138691064952',
-	      xfbml      : true,
-	      version    : 'v2.5'
-	    });
-      FB.Event.subscribe(
-        'ad.loaded',
-        function(placementId) {
-          console.log('Audience Network ad loaded');
-        }
-      );
-      FB.Event.subscribe(
-        'ad.error',
-        function(errorCode, errorMessage, placementId) {
-          console.log('Audience Network error (' + errorCode + ') ' + errorMessage);
-        }
-      );
-    };
-    (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk/xfbml.ad.js#xfbml=1&version=v2.5&appId=1692138691064952";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
+	 	// window.fbAsyncInit = function() {
+	 	// 	FB.init({
+	  //     appId      : '1692138691064952',
+	  //     xfbml      : true,
+	  //     version    : 'v2.5'
+	  //   });
+   //    FB.Event.subscribe(
+   //      'ad.loaded',
+   //      function(placementId) {
+   //        console.log('Audience Network ad loaded');
+   //      }
+   //    );
+   //    FB.Event.subscribe(
+   //      'ad.error',
+   //      function(errorCode, errorMessage, placementId) {
+   //        console.log('Audience Network error (' + errorCode + ') ' + errorMessage);
+   //      }
+   //    );
+   //  };
+    // (function(d, s, id) {
+    //   var js, fjs = d.getElementsByTagName(s)[0];
+    //   if (d.getElementById(id)) return;
+    //   js = d.createElement(s); js.id = id;
+    //   js.src = "//connect.facebook.net/en_US/sdk/xfbml.ad.js#xfbml=1&version=v2.5&appId=1692138691064952";
+    //   fjs.parentNode.insertBefore(js, fjs);
+    // }(document, 'script', 'facebook-jssdk'));
 
 		(function(d, s, id){
 	     var js, fjs = d.getElementsByTagName(s)[0];
@@ -136,9 +136,9 @@
 			
 			<!-- ADSPACE -->
 			<div class="responsive-main-center-ad asdp">
-				<div class="responsive-ad">
+				<!-- <div class="responsive-ad">
 			    <fb:ad placementid="1692138691064952_1692173077728180" format="300x250" testmode="false"></fb:ad>
-				</div>
+				</div> -->
 			</div> <!-- end .responsive-main-center-ad .adsp -->
 
 
